@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Profile - HAUS+</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #0a0a0a;
+      color: white;
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: black;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #222;
+    }
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      color: #00ccff;
+      text-shadow: 0 0 10px #00ccff;
+    }
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+    .section {
+      margin-bottom: 2rem;
+    }
+    .section h2 {
+      font-family: 'Orbitron', sans-serif;
+      color: #00ccff;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #222;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">HAUS+</div>
+  </header>
+  <main>
+    <h1>Welcome, Streamer</h1>
+    <div class="section">
+      <h2>❤️ My List</h2>
+      <ul id="liked-list"></ul>
+    </div>
+    <div class="section">
+      <h2>📺 Watch History</h2>
+      <ul id="history-list"></ul>
+    </div>
+  </main>
+  <script>
+    const likes = JSON.parse(localStorage.getItem("liked") || "[]");
+    const history = JSON.parse(localStorage.getItem("history") || "[]");
+
+    const likedList = document.getElementById("liked-list");
+    const historyList = document.getElementById("history-list");
+
+    likes.forEach(title => {
+      const li = document.createElement("li");
+      li.textContent = title;
+      likedList.appendChild(li);
+    });
+
+    history.forEach(title => {
+      const li = document.createElement("li");
+      li.textContent = title;
+      historyList.appendChild(li);
+    });
+  </script>
+</body>
+</html>
