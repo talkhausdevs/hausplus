@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HAUS Music TV - Live</title>
+  <title>The Sipuation Live - Confession Cam 24/7</title>
   <link rel="stylesheet" href="styles.css"/>
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </head>
@@ -13,11 +13,11 @@
   <nav><a href="index.html">Home</a><a href="channel-guide.html">Guide</a></nav>
 </header>
 <main class="section">
-  <h2>🔴 Now Playing: HAUS Music TV (Lo-fi Beats 24/7)</h2>
+  <h2>🔴 Now Playing: The Sipuation Live - Confession Cam 24/7</h2>
   <video id="video" controls autoplay style="width:100%; max-height: 500px; border-radius: 12px; box-shadow: 0 0 15px #00ccff;"></video>
   <script>
     const video = document.getElementById('video');
-    const streamURL = "https://edge.mixlr.com/channel/kkhhn/low";
+    const streamURL = "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8";
 
     if (Hls.isSupported()) {
       const hls = new Hls();
