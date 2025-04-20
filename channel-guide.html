@@ -1,11 +1,98 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HAUS+ Channel Guide</title><link rel="stylesheet" href="styles.css"></head>
-<body><header><div class="logo">HAUS<span>+</span></div><nav><a href="index.html">Home</a><a href="live-tv.html">Live TV</a></nav></header>
-<main><section class="section"><h2>HAUS+ Channel Guide</h2>
-<table style="width:100%;color:white;"><tr style="background-color:#222;"><th>Channel</th><th>Now Playing</th><th>Up Next</th></tr>
-<tr><td><a href="channel.html" style="color:#00ccff;">HAUS Music TV</a></td><td>Lo-fi Chill Beats</td><td>Night Lounge Set</td></tr>
-<tr><td>The Sipuation Live</td><td>Confession Cam</td><td>Messy Afterhours</td></tr>
-<tr><td>HAUS Throwbacks</td><td>Mama I Want to Sing</td><td>Gospel Hour</td></tr>
-<tr><td>HAUS Talk</td><td>Coast 2 Coast</td><td>Late Talk w/ Rico Flame</td></tr>
-</table></section></main></body></html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAUS+ Dynamic Guide</title>
+  <style>
+    body {
+      background: #0a0a0a;
+      color: white;
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+    }
+    header {
+      background: black;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
+    }
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      color: #00ccff;
+    }
+    main {
+      padding: 1.5rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #444;
+      padding: 0.5rem;
+      text-align: center;
+    }
+    th {
+      background: #00ccff;
+      color: black;
+    }
+    .now {
+      background: #00ccff88;
+      color: black;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">HAUS+</div>
+  </header>
+  <main>
+    <h2>📅 Dynamic Channel Guide</h2>
+    <table id="guide-table">
+      <thead>
+        <tr>
+          <th>Channel</th>
+          <th>8 PM</th>
+          <th>9 PM</th>
+          <th>10 PM</th>
+        </tr>
+      </thead>
+      <tbody id="guide-body"></tbody>
+    </table>
+  </main>
+  <script>
+    async function loadSchedule() {
+      const res = await fetch('schedule.json');
+      const data = await res.json();
+      const now = new Date();
+      const currentHour = now.getHours();
+
+      const tbody = document.getElementById("guide-body");
+      Object.entries(data).forEach(([channel, shows]) => {
+        const tr = document.createElement("tr");
+        const tdChannel = document.createElement("td");
+        tdChannel.innerHTML = `<a href="#">${channel}</a>`;
+        tr.appendChild(tdChannel);
+
+        shows.forEach(({ title, start }) => {
+          const startHour = parseInt(start.split(":")[0]);
+          const td = document.createElement("td");
+          td.textContent = title;
+          if (startHour === currentHour) {
+            td.classList.add("now");
+          }
+          tr.appendChild(td);
+        });
+
+        tbody.appendChild(tr);
+      });
+    }
+    loadSchedule();
+  </script>
+</body>
+</html>

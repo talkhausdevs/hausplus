@@ -1,0 +1,70 @@
+{
+  "HAUS Music TV": [
+    {
+      "title": "Lo-fi Chill Beats",
+      "start": "20:00",
+      "end": "21:00"
+    },
+    {
+      "title": "Night Lounge",
+      "start": "21:00",
+      "end": "22:00"
+    },
+    {
+      "title": "Downtempo Dreams",
+      "start": "22:00",
+      "end": "23:00"
+    }
+  ],
+  "The Sipuation Live": [
+    {
+      "title": "Confession Cam",
+      "start": "20:00",
+      "end": "21:00"
+    },
+    {
+      "title": "Messy Afterhours",
+      "start": "21:00",
+      "end": "22:00"
+    },
+    {
+      "title": "Live Receipts",
+      "start": "22:00",
+      "end": "23:00"
+    }
+  ],
+  "HAUS Throwbacks": [
+    {
+      "title": "Mama I Want to Sing",
+      "start": "20:00",
+      "end": "21:00"
+    },
+    {
+      "title": "Gospel Hour",
+      "start": "21:00",
+      "end": "22:00"
+    },
+    {
+      "title": "Throwback Flicks",
+      "start": "22:00",
+      "end": "23:00"
+    }
+  ],
+  "HAUS Talk": [
+    {
+      "title": "Coast 2 Coast",
+      "start": "20:00",
+      "end": "21:00"
+    },
+    {
+      "title": "Late Talk",
+      "start": "21:00",
+      "end": "22:00"
+    },
+    {
+      "title": "Black Roundtable",
+      "start": "22:00",
+      "end": "23:00"
+    }
+  ]
+}
