@@ -83,5 +83,19 @@
       historyList.appendChild(li);
     });
   </script>
-</body>
+
+    <div class="section">
+      <h2>🛎 My Reminders</h2>
+      <ul id="reminder-list"></ul>
+    </div>
+    <script>
+      const reminders = JSON.parse(localStorage.getItem("reminders") || "[]");
+      const reminderList = document.getElementById("reminder-list");
+      reminders.forEach(({channel, title, time}) => {
+        const li = document.createElement("li");
+        li.textContent = `${time} - ${title} on ${channel}`;
+        reminderList.appendChild(li);
+      });
+    </script>
+    </body>
 </html>

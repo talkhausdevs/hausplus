@@ -35,6 +35,7 @@
       border: 1px solid #444;
       padding: 0.5rem;
       text-align: center;
+      vertical-align: top;
     }
     th {
       background: #00ccff;
@@ -45,6 +46,16 @@
       color: black;
       font-weight: bold;
     }
+    .reminder-btn {
+      margin-top: 0.25rem;
+      padding: 0.2rem 0.6rem;
+      background-color: #00ccff;
+      color: black;
+      border: none;
+      font-size: 0.75rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -52,7 +63,7 @@
     <div class="logo">HAUS+</div>
   </header>
   <main>
-    <h2>📅 Dynamic Channel Guide</h2>
+    <h2>📅 Dynamic Channel Guide + Reminders</h2>
     <table id="guide-table">
       <thead>
         <tr>
@@ -73,6 +84,7 @@
       const currentHour = now.getHours();
 
       const tbody = document.getElementById("guide-body");
+
       Object.entries(data).forEach(([channel, shows]) => {
         const tr = document.createElement("tr");
         const tdChannel = document.createElement("td");
@@ -82,7 +94,8 @@
         shows.forEach(({ title, start }) => {
           const startHour = parseInt(start.split(":")[0]);
           const td = document.createElement("td");
-          td.textContent = title;
+          td.innerHTML = `<div>${title}</div>
+            <button class="reminder-btn" onclick="setReminder('${channel}', '${title}', '${start}', this)">🔔 Set Reminder</button>`;
           if (startHour === currentHour) {
             td.classList.add("now");
           }
@@ -92,6 +105,20 @@
         tbody.appendChild(tr);
       });
     }
+
+    function setReminder(channel, title, time, btn) {
+      let reminders = JSON.parse(localStorage.getItem("reminders") || "[]");
+      const entry = { channel, title, time };
+      const exists = reminders.some(r => r.channel === channel && r.title === title && r.time === time);
+      if (!exists) {
+        reminders.push(entry);
+        localStorage.setItem("reminders", JSON.stringify(reminders));
+        btn.textContent = "✅ Reminder Set";
+      } else {
+        btn.textContent = "✅ Already Set";
+      }
+    }
+
     loadSchedule();
   </script>
 </body>
