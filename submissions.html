@@ -1,20 +1,10 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>HAUS+ Submissions Log</title><link rel="stylesheet" href="styles.css" /></head>
-<body><header><div class="logo">HAUS<span>+</span></div>
-<nav><a href="index.html">Home</a><a href="submit.html">Submit</a><a href="submissions.html">View Submissions</a></nav></header>
-<main><section class="section"><h2>Creator Submissions</h2>
-<ul id="submissions-log" style="color: white;"></ul></section></main>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Submissions</title><link rel="stylesheet" href="styles.css" /></head>
+<body><header><div class="logo">HAUS<span>+</span></div><nav><a href="index.html">Home</a><a href="submit.html">Submit</a><a href="submissions.html">View Submissions</a></nav></header>
+<main><section class="section"><h2>Creator Submissions</h2><ul id="submissions-log" style="color:white;"></ul></section></main>
 <script>
 const log = document.getElementById('submissions-log');
 const entries = JSON.parse(localStorage.getItem('haus_submissions') || '[]');
-if (entries.length === 0) {
-  log.innerHTML = '<li>No submissions yet.</li>';
-} else {
-  entries.forEach(entry => {
-    const li = document.createElement('li');
-    li.innerHTML = `<strong>${entry.title}</strong> by ${entry.name} - <a href="${entry.link}" target="_blank" style="color: #00aaff;">Watch</a><br><em>${entry.desc}</em><hr>`;
-    log.appendChild(li);
-  });
-}
+log.innerHTML = entries.length === 0 ? '<li>No submissions yet.</li>' : entries.map(e => 
+`<li><strong>${e.title}</strong> by ${e.name} - <a href="${e.link}" target="_blank">Watch</a><br><em>${e.desc}</em><hr></li>`).join('');
 </script></body></html>

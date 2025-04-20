@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>HAUS+ Channel Stream</title><link rel="stylesheet" href="styles.css" /></head>
+<body><header><div class="logo">HAUS<span>+</span></div><nav><a href="index.html">Home</a><a href="live-tv.html">Live TV</a></nav></header>
+<main><section class="section"><h2>Now Playing: HAUS Music TV</h2>
+<video width="100%" height="auto" controls autoplay>
+<source src="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" type="application/x-mpegURL">
+Your browser does not support the video tag.</video>
+<div id="midroll-ad" class="midroll-ad">
+  <img src="https://via.placeholder.com/728x90?text=Midroll+Ad" alt="Midroll Ad">
+</div>
+<script>
+  setTimeout(() => {
+    document.getElementById('midroll-ad').style.display = 'block';
+    setTimeout(() => {
+      document.getElementById('midroll-ad').style.display = 'none';
+    }, 10000);
+  }, 10000);
+</script>
+</section></main></body></html>
