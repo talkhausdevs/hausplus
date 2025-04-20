@@ -1,43 +1,79 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>HAUS+</title>
-<link rel="stylesheet" href="styles.css" />
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HAUS+ Intro</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      color: white;
+      font-family: 'Orbitron', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .splash-container {
+      text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #00ccff;
+      text-shadow: 0 0 10px #00ccff, 0 0 30px #00ccff;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-bottom: 2rem;
+    }
+
+    .enter-btn {
+      padding: 1rem 2rem;
+      background-color: #00ccff;
+      color: black;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 0 15px #00ccff;
+    }
+
+    .enter-btn:hover {
+      background-color: #009fc7;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
 </head>
 <body>
-<header><div class="logo">HAUS<span>+</span></div>
-<nav><a href="index.html">Home</a><a href="live-tv.html">Live TV</a><a href="channel-guide.html">Guide</a><a href="submit.html">Submit</a></nav></header>
-
-<div class="ad-banner"><img src="https://via.placeholder.com/1200x100?text=HAUS+Ad+Banner" alt="Ad Banner"></div>
-
-<main>
-<section class="hero"><div class="hero-content">
-<h1>Justice for Jeffree</h1>
-<p>Music. Fame. Secrets. And one hell of a comeback story.</p>
-<button>Start Watching</button>
-</div></section>
-
-<section class="section"><h2>HAUS+ Channels</h2><div class="grid">
-  <div class="card">
-    <img src="thumbnails/haus_music_tv.jpg" alt="HAUS Music TV"/>
-    <div class="label">HAUS Music TV</div>
+  <div class="splash-container">
+    <h1>Welcome to HAUS+</h1>
+    <p>Your World. Your Voice. Your Stream.</p>
+    <button class="enter-btn" onclick="enterSite()">Enter HAUS+</button>
   </div>
-  <div class="card">
-    <img src="thumbnails/sipuation_channel.jpg" alt="Sipuation Channel"/>
-    <div class="label">Sipuation Channel</div>
-  </div>
-  <div class="card">
-    <img src="thumbnails/haus_throwbacks.jpg" alt="HAUS Throwbacks"/>
-    <div class="label">HAUS Throwbacks</div>
-  </div>
-  <div class="card">
-    <img src="thumbnails/haus_talk.jpg" alt="HAUS Talk"/>
-    <div class="label">HAUS Talk</div>
-  </div>
-</div></section>
-
-<section class="marquee"><div class="marquee-track">
-<span>Now Streaming: The Sipuation | HAUS After Dark | Church Kids Gone Wild | Nail Therapist | Justice for Jeffree</span></div></section>
-</main>
-<script src="script.js"></script>
-</body></html>
+  <script>
+    function enterSite() {
+      window.location.href = "index.html";
+    }
+    setTimeout(() => {
+      enterSite();
+    }, 5000);
+  </script>
+</body>
+</html>
